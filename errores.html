@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errores</title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="first-link"><a href="#">Errores Formulario</a></li>
+            <li><a href="registro.html">Ir a Formulario</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Errores:</h2>
+        <ul id="listaErrores"></ul>
+    </div>
+
+    <script>
+        // Recuperar los errores del localStorage
+        var errores = JSON.parse(localStorage.getItem("errores"));
+        var listaErrores = document.getElementById("listaErrores");
+
+        // Mostrar los errores en la lista
+        errores.forEach(function(error) {
+            var li = document.createElement("li");
+            li.textContent = error;
+            listaErrores.appendChild(li);
+        });
+
+        // Limpiar el localStorage después de mostrar los errores
+        localStorage.removeItem("errores");
+    </script>
+</body>
+</html>

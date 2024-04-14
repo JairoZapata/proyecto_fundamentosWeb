@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Productos</title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="first-link"><a href="#">Registro de Productos</a></li>
+        </ul>
+    </nav>
+
+    <section class="container">
+        <h2>Formulario de Registro</h2>
+        <form id="registroForm" action="#" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            
+            <label for="categoria">Categoría:</label>
+            <select id="categoria" name="categoria">
+                <option value="">Selecciona una categoría</option>
+                <option value="Compacto">Compacto</option>
+                <option value="Deportivo">Deportivo</option>
+                <option value="SUV">SUV</option>
+            </select>
+            
+            <label for="imagen">Imagen:</label>
+            <select id="imagen" name="imagen">
+                <option value="">Selecciona una imagen</option>
+                <option value="toyota_corolla.jpg">Toyota Corolla</option>
+                <option value="ford_mustang.jpg">Ford Mustang</option>
+            </select>
+            
+            <label for="codigo">Código Producto:</label>
+            <input type="text" id="codigo" name="codigo">
+            
+            <label for="precio">Precio:</label>
+            <input type="text" id="precio" name="precio">
+            
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo">
+            
+            <label for="transmicion">Transmicion:</label>
+            <select id="transmicion" name="transmicion">
+                <option value="">Selecciona una transmicion</option>
+                <option value="Mecanico">Mecanico</option>
+                <option value="Automatico">Automatico</option>
+            </select>
+            
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color">
+            
+            <input type="submit" value="Registrar" formaction="errores.html">
+        </form>
+    </section>
+
+    <div id="errores" class="container" style="display:none;">
+        <h2>Errores:</h2>
+        <ul id="listaErrores"></ul>
+    </div>
+
+    <script type="text/javascript" src="db.js"></script>
+
+</body>
+</html>
