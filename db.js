@@ -22,14 +22,13 @@ let carros = [
     
 ];
 
-document.getElementById("registroForm").addEventListener("submit", function(event){
+const handleSubmit = (event) => {
     event.preventDefault();
 
     // Validar el formulario
-    var formulario = document.getElementById("registroForm");
-    var errores = [];
-    
-    // Validar cada campo del formulario
+    const formulario = document.getElementById("registroForm");
+    const errores = [];
+
     if (formulario.nombre.value === "") {
         errores.push("El campo Nombre es obligatorio.");
     }
@@ -75,7 +74,7 @@ document.getElementById("registroForm").addEventListener("submit", function(even
     const modelo = document.getElementById("modelo").value;
     const transmicion = document.getElementById("transmicion").value;
     const color = document.getElementById("color").value;
-    
+
     const nuevoCarro = {
         nombre,
         categoria,
@@ -92,9 +91,10 @@ document.getElementById("registroForm").addEventListener("submit", function(even
     alert("¡El carro ha sido registrado correctamente!");
 
     document.getElementById("registroForm").reset();
-});
+};
 
-function mostrarErrores(errores) {
+const mostrarErrores = (errores) => {
     localStorage.setItem("errores", JSON.stringify(errores));
     window.location.href = "errores.html";
 }
+

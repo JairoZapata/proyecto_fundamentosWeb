@@ -19,20 +19,6 @@
         <ul id="listaErrores"></ul>
     </div>
 
-    <script>
-        // Recuperar los errores del localStorage
-        var errores = JSON.parse(localStorage.getItem("errores"));
-        var listaErrores = document.getElementById("listaErrores");
-
-        // Mostrar los errores en la lista
-        errores.forEach(function(error) {
-            var li = document.createElement("li");
-            li.textContent = error;
-            listaErrores.appendChild(li);
-        });
-
-        // Limpiar el localStorage después de mostrar los errores
-        localStorage.removeItem("errores");
-    </script>
+    <script src="errores.js" type="text/javascript"></script>
 </body>
 </html>
