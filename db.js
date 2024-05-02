@@ -25,7 +25,7 @@ let carros = [
 const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Validar el formulario
+    // Valido el formulario
     const formulario = document.getElementById("registroForm");
     const errores = [];
 
@@ -96,5 +96,5 @@ const handleSubmit = (event) => {
 const mostrarErrores = (errores) => {
     localStorage.setItem("errores", JSON.stringify(errores));
     window.location.href = "errores.html";
-}
+};
 

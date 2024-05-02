@@ -1,4 +1,4 @@
-console.log("Holaaa");
+console.log("Pruebaaa!");
 
 let errores = JSON.parse(localStorage.getItem("errores"));
 let listaErrores = document.getElementById("listaErrores");
