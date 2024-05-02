@@ -1,5 +1,5 @@
 # Creation JavaScript System and Html
-# Proyecto Final: Registro de Vehículos
+## Proyecto Final: Registro de Vehículos
 
 Este proyecto final forma parte de la asignatura de Fundamentos Web y consiste en un sistema de registro de vehículos. 
 
