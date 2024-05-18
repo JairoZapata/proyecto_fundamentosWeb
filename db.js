@@ -501,7 +501,7 @@ let carros = JSON.parse(localStorage.getItem('carros')) || [
     }
 ];
 
-
+// localStorage.setItem('carros', JSON.stringify(carros));
 const handleSubmit = (event) => {
     event.preventDefault();
 
