@@ -15,7 +15,37 @@
         </ul>
     </nav>
 
-    <h1>En desarrollo!</h1>
+    <div class="container">
+        <h1>Buscador de Productos</h1>
+        <div class="search-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+            <label for="categoria">Categoría:</label>
+            <input type="text" id="categoria">
+            <label for="modelo">Modelo:</label>
+            <input type="number" id="modelo">
+            <button onclick="buscar()">Buscar</button>
+        </div>
 
+    </div>
+
+    <table id="tablaResultados">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Imagen</th>
+                <th>Código Producto</th>
+                <th>Precio</th>
+                <th>Modelo</th>
+                <th>Transmisión</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Resultados de búsqueda irán aquí -->
+        </tbody>
+    </table>
+    <script src="db.js"></script>
 </body>
 </html>
