@@ -632,14 +632,19 @@ const buscar = () => {
     const nombre = document.getElementById('nombre').value.toLowerCase();
     const categoria = document.getElementById('categoria').value.toLowerCase();
     const modelo = document.getElementById('modelo').value;
+    const tbody = document.getElementById('tablaResultados').getElementsByTagName('tbody')[0];
 
-    const resultados = carros.filter(carro => 
-        (nombre === "" || carro.nombre.toLowerCase().includes(nombre)) &&
-        (categoria === "" || carro.categoria.toLowerCase().includes(categoria)) &&
-        (modelo === "" || carro.modelo.toString() === modelo)
-    );
+    tbody.innerHTML = `<tr><td colspan="8">Buscando...</td></tr>`;
 
-    mostrarResultados(resultados);
+    setTimeout(() => {
+        const resultados = carros.filter(carro => 
+            (nombre === "" || carro.nombre.toLowerCase().includes(nombre)) &&
+            (categoria === "" || carro.categoria.toLowerCase().includes(categoria)) &&
+            (modelo === "" || carro.modelo.toString() === modelo)
+        );
+    
+        mostrarResultados(resultados);
+    }, 2000);    
 }
 
 const mostrarResultados = (resultados) => {
