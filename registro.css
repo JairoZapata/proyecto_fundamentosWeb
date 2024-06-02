@@ -47,7 +47,8 @@ form label {
     margin-bottom: 5px;
 }
 
-form input[type="text"],
+form input[type="text"], 
+input[type="number"],
 form select {
     width: calc(100% - 12px);
     padding: 8px;
@@ -86,7 +87,17 @@ form input[type="submit"]:hover {
     width: 200px;
     font-size: 13px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
+
+.card img {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 
 .pagination {
     margin-top: 20px;
@@ -187,5 +198,3 @@ table img {
     height: auto;
     border-radius: 3px;
 }
-
-/* select */
