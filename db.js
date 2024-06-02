@@ -657,7 +657,7 @@ const mostrarResultados = (resultados) => {
         row.insertCell(1).innerText = carro.categoria;
         row.insertCell(2).innerHTML = `<img src="${carro.imagen}" alt="${carro.nombre}" width="30">`;
         row.insertCell(3).innerText = carro.codigoProducto;
-        row.insertCell(4).innerText = `$ `.carro.precio;
+        row.insertCell(4).innerText = carro.precio;
         row.insertCell(5).innerText = carro.modelo;
         row.insertCell(6).innerText = carro.transmicion;
         row.insertCell(7).innerText = carro.color;
