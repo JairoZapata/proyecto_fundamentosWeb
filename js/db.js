@@ -501,51 +501,6 @@ let carros =  [
     }
 ];
 
-const carrosPerPage = 14;
-let currentPage = 1;
-
-const displayCarros = (carros) => {
-    const carrosContainer = document.getElementById('carros-container');
-    carrosContainer.innerHTML = '';
-
-    const startIndex = (currentPage - 1) * carrosPerPage;
-    const endIndex = startIndex + carrosPerPage;
-    const displayedCarros = carros.slice(startIndex, endIndex);
-
-    displayedCarros.forEach(carro => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML = `
-            <img src="${carro.imagen}" alt="${carro.nombre}">
-            <h2>${carro.nombre}</h2>
-            <p><strong>Categoría:</strong> ${carro.categoria}</p>
-            <p><strong>Código Producto:</strong> ${carro.codigoProducto}</p>
-            <p><strong>Precio:</strong> ${carro.precio}</p>
-            <p><strong>Modelo:</strong> ${carro.modelo}</p>
-            <p><strong>Transmisión:</strong> ${carro.transmicion}</p>
-            <p><strong>Color:</strong> ${carro.color}</p>
-        `;
-        carrosContainer.appendChild(card);
-    });
-}
-
-const displayPagination = (totalCarros) => {
-    const totalPages = Math.ceil(totalCarros / carrosPerPage);
-    const paginationContainer = document.getElementById('pagination');
-    paginationContainer.innerHTML = '';
-
-    for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('button');
-        button.textContent = i;
-        button.addEventListener('click', () => {
-            currentPage = i;
-            displayCarros(carros);
-            displayPagination(carros.length);
-        });
-        paginationContainer.appendChild(button);
-    }
-}
-
 // localStorage.setItem('carros', JSON.stringify(carros));
 const handleSubmit = (event) => {
     event.preventDefault();
@@ -628,42 +583,6 @@ const mostrarErrores = (errores) => {
     window.location.href = "errores.html";
 };
 
-const buscar = () => {
-    const nombre = document.getElementById('nombre').value.toLowerCase();
-    const categoria = document.getElementById('categoria').value.toLowerCase();
-    const modelo = document.getElementById('modelo').value;
-    const tbody = document.getElementById('tablaResultados').getElementsByTagName('tbody')[0];
-
-    tbody.innerHTML = `<tr><td colspan="8">Buscando...</td></tr>`;
-
-    setTimeout(() => {
-        const resultados = carros.filter(carro => 
-            (nombre === "" || carro.nombre.toLowerCase().includes(nombre)) &&
-            (categoria === "" || carro.categoria.toLowerCase().includes(categoria)) &&
-            (modelo === "" || carro.modelo.toString() === modelo)
-        );
-    
-        mostrarResultados(resultados);
-    }, 2000);    
-}
-
-const mostrarResultados = (resultados) => {
-    const tbody = document.getElementById('tablaResultados').getElementsByTagName('tbody')[0];
-    tbody.innerHTML = ""; // Limpiar resultados anteriores
-
-    resultados.forEach(carro => {
-        const row = tbody.insertRow();
-        row.insertCell(0).innerText = carro.nombre;
-        row.insertCell(1).innerText = carro.categoria;
-        row.insertCell(2).innerHTML = `<img src="${carro.imagen}" alt="${carro.nombre}" width="30">`;
-        row.insertCell(3).innerText = carro.codigoProducto;
-        row.insertCell(4).innerText = carro.precio;
-        row.insertCell(5).innerText = carro.modelo;
-        row.insertCell(6).innerText = carro.transmicion;
-        row.insertCell(7).innerText = carro.color;
-    });
-}
-
 // Función para llenar los selects
 const populateSelects = () => {
     const categoriaSelect = document.getElementById('categoria');
@@ -702,15 +621,3 @@ const populateSelects = () => {
 // Ejecutar la función para llenar los selects al cargar la página
 document.addEventListener('DOMContentLoaded', populateSelects);
 
-
-window.onload = () => {
-    // Recuperar los carros del localStorage o usar la lista vacía si no hay datos
-    const carrosRegistrados = JSON.parse(localStorage.getItem('carros')) || [];
-    // Si hay carros registrados, mostrarlos en la página
-    if (carrosRegistrados.length > 0) {
-        carros = carrosRegistrados;
-        displayCarros(carros);
-    }
-    // Mostrar paginación 
-    displayPagination(carros.length);
-};

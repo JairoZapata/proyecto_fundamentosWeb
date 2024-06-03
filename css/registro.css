@@ -4,29 +4,34 @@ body {
     padding: 0;
 }
 
-nav {
+header {
     background-color: #333;
 }
 
-nav ul {
+header ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-nav ul li {
+header ul li {
     display: inline-block;
 }
 
-nav ul li a {
+header ul li a {
     display: block;
     padding: 15px;
     text-decoration: none;
     color: #fff;
 }
 
-nav ul li.first-link {
+header ul li.first-link {
     font-size: 20px;
+}
+
+.header-logo {
+    width: 50px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
 }
 
 .container {
